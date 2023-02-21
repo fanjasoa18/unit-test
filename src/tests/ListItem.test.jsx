@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 
 import { ListItem } from "../ListItem";
 
@@ -46,11 +46,37 @@ describe('ListItem', () => {
         expect(node.children).toHaveLength(1);
     });
     
-    //TODO: implement this
-    it('callback is called', () => {});
+    it('callback is called', () => {
+        const { getByTestId } = render(
+            <ListItem 
+                id='list-item-1'
+                checkable={true}
+                onCheck={mockOnCheck}
+                item='Lorem ipsum dolor sit amet consectetur' 
+            />
+        );
+        const checkbox = getByTestId('test-list-item-1');
+        fireEvent.click(checkbox);
+        expect(mockOnCheck).toHaveBeenCalledWith(expect.any(Object), 'Lorem ipsum dolor sit amet consectetur', 0);
+    });
 
-    //TODO: implement this
-    it('callback is not called when not checkable', () => {});
+
+
+    it('callback is not called when not checkable', () => {
+        const { getByTestId } = render(
+            <ListItem
+                id='list-item-1'
+                checkable={false}
+                onCheck={mockOnCheck}
+                item='Lorem ipsum dolor sit amet consectetur'
+            />
+        );
+        const checkbox = getByTestId('test-list-item-1-container');
+        fireEvent.click(checkbox);
+        expect(mockOnCheck).not.toHaveBeenCalled();
+    });
+
+    
 
     //TODO: implement this
     it('matches saved snapshot', () => {
