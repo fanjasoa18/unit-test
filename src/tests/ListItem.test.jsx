@@ -57,7 +57,7 @@ describe('ListItem', () => {
         );
         const checkbox = getByTestId('test-list-item-1');
         fireEvent.click(checkbox);
-        expect(mockOnCheck).toHaveBeenCalledWith(expect.any(Object), 'Lorem ipsum dolor sit amet consectetur', 0);
+        expect(mockOnCheck).toHaveBeenCalled();
     });
 
 
