@@ -38,7 +38,6 @@
     ]
   },
   "devDependencies": {
-<<<<<<< HEAD
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.18.6",
@@ -49,8 +48,5 @@
     "cypress": "^12.5.1",
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0"
-=======
-    "cypress": "^12.5.1"
->>>>>>> b8e0f9d (feat: callback test for checkbox)
   }
 }
